@@ -8,8 +8,14 @@ const Login = (props) => {
     const [userPassword, setUserPassword] = useState('')
     const [isRegistered, setIsRegistered] = useState(false)
 
-    const handleLogin = () => {
-       console.log('logged in')
+    const handleLogin = (e) => {
+        e.preventDefault()
+        console.log('logged in')
+    }
+
+    const handleSignUp = (e) => {
+        e.preventDefault()
+        console.log('signed up')
     }
 
     const handleFormComplete = (event) => {
@@ -54,11 +60,11 @@ const Login = (props) => {
                         <div onClick={()=> setIsRegistered(!isRegistered)} className='links'> {isRegistered? "Back to Login" : "Don't have an account? Sign Up"}</div>
                         <div className='d-flex justify-content-center mt-3' >
                             {!isRegistered? (
-                                <button className='btn btn-lg btnLogin'>
+                                <button className='btn btn-lg btnLogin' onClick={(e) => handleLogin(e)}>
                                     Login
                                 </button>
                             ) :
-                            (<button className='btn btn-lg btnLogin'>
+                            (<button className='btn btn-lg btnLogin' onClick={(e) => handleSignUp(e)}>
                                 Sign Up
                             </button>)  }
                         </div>
