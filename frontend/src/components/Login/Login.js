@@ -6,6 +6,7 @@ const Login = (props) => {
 
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
+    const [isRegistered, setIsRegistered] = useState(false)
 
     const handleLogin = () => {
        console.log('logged in')
@@ -50,10 +51,16 @@ const Login = (props) => {
                                 onChange={(event) => handleFormComplete(event)}
                             />
                         </div>
+                        <div onClick={()=> setIsRegistered(!isRegistered)} className='links'> {isRegistered? "Back to Login" : "Don't have an account? Sign Up"}</div>
                         <div className='d-flex justify-content-center mt-3' >
-                            <button className='btn btn-lg btnLogin'>
-                                Login
-                            </button>
+                            {!isRegistered? (
+                                <button className='btn btn-lg btnLogin'>
+                                    Login
+                                </button>
+                            ) :
+                            (<button className='btn btn-lg btnLogin'>
+                                Sign Up
+                            </button>)  }
                         </div>
                     </form>
                 </div>

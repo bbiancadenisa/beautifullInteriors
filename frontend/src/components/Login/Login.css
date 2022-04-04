@@ -26,3 +26,10 @@
 .textContainer {
     margin-bottom: 1.5em;
 }
+
+.links{
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 1em;
+}
