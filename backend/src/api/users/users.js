@@ -12,3 +12,5 @@ router.route("/all").get((req,res =>{
 router.route("/search").get((req,res =>{
     res.send({status: 200, message: 'Everything seems to be working fine on GET'})
 }))
+
+module.exports = router
