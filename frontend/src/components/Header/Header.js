@@ -3,7 +3,6 @@ import './Header.css'
 
 
 const Header = (props) => {
-
     return (
         <div className='header'>
         <div  className='headerTitle'>
