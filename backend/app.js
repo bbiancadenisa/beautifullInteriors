@@ -15,6 +15,7 @@ app.use("/users", user)
 app.use("/designs", design)
 app.use("/login", login)
 app.use("/contact", contact)
+app.use('*', (req, res) => res.status(404).json({ message: "Pagina nu a fost gasita" }));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
