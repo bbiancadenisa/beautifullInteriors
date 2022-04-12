@@ -10,11 +10,15 @@ const Login = (props) => {
 
     const handleLogin = (e) => {
         e.preventDefault()
+        setUserEmail(e.target.value)
+        setUserPassword(e.target.value)
         console.log('logged in')
     }
 
     const handleSignUp = (e) => {
         e.preventDefault()
+        setUserEmail(e.target.value)
+        setUserPassword(e.target.value)
         console.log('signed up')
     }
 
