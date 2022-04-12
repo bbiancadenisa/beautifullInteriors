@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
 import './Login.css'
 
 
@@ -7,6 +9,7 @@ const Login = (props) => {
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
     const [isRegistered, setIsRegistered] = useState(false)
+    const [error,setError] = useState()
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -25,6 +28,22 @@ const Login = (props) => {
     const handleFormComplete = (event) => {
         console.log('completed')
     }
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const payload = {
+          userEmail: userEmail,
+          userPassword: userPassword
+        }
+        try {
+            let res = await axios.post('http://localhost:3001/login', payload)
+            console.log(res);
+            history.push("/menu"); 
+        } catch (e) {
+            console.log(e);
+            setError(e);
+        } 
+      }
 
     return (
         <div className='containerLogin text-white container-fluid d-flex flex-row align-items-center text-align-center'>
