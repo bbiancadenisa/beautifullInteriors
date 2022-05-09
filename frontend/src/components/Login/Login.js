@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import './Login.css'
 
 
 const Login = (props) => {
+
+    const history = useNavigate()
 
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
@@ -38,7 +40,7 @@ const Login = (props) => {
         try {
             let res = await axios.post('http://localhost:3001/login', payload)
             console.log(res);
-            history.push("/menu"); 
+            history("/menu"); 
         } catch (e) {
             console.log(e);
             setError(e);
