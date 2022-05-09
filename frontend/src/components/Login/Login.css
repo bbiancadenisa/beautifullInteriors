@@ -1,0 +1,35 @@
+
+.containerLogin {
+    height: 100vh;
+    background-color: #491D22 !important;
+    display: flex;
+    justify-content: center;
+    font-family: "HelveticaNeue-Light";
+}
+
+.formContainer {
+    padding: 5em 3em 1em 3em;
+    background-color: #2C1114 !important;
+    border-radius: 0.3em;
+    width: 30em;
+}
+
+.btnLogin, .btnLogin:hover, .btnLogin:focus, .btnLogin:active, .btnLogin:active:focus {
+    margin: 2em;
+    color: white !important;
+    width: 10em;
+    background-color: #BC4B51 !important;
+    border-color: #BC4B51 !important;
+    box-shadow: none !important;
+}
+
+.textContainer {
+    margin-bottom: 1.5em;
+}
+
+.links{
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 1em;
+}
