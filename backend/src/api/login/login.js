@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 
-router.route("/").post((req,res =>{
+router.route("/").post(async (req,res) =>{
     try {
         console.log(req.body)
         const userEmail = req.body.userEmail;
@@ -22,11 +22,11 @@ router.route("/").post((req,res =>{
         return res.status(404).json(err);
       }
     res.send({status: 200, message: 'Everything seems to be working fine on POST'})
-}))
+})
 
-router.route("/logout").get((req,res =>{
+router.route("/logout").get((req,res) =>{
     res.send({status: 200, message: 'Everything seems to be working fine on GET'})
-}))
+})
 
 
 module.exports = router
