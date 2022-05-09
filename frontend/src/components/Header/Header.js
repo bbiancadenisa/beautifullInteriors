@@ -12,7 +12,7 @@ const pages = ['Designs', 'Contact', 'Blog'];
 
 const Header = () => {
   return (
-    <AppBar position="static">
+    <AppBar style={{backgroundColor: '#2C1114'}}position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -28,6 +28,9 @@ const Header = () => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              '&:hover': {
+                color: "white"
+              }
             }}
           >
             LOGO

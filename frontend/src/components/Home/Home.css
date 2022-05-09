@@ -1,0 +1,28 @@
+.home {
+    background-color: #491D22;
+    color: white;
+}
+
+.imgHomeInterior {
+    height: 400px;
+}
+
+.homeDescription {
+    padding-top: 4em;
+}
+
+.descriptionContainer {
+    display: flex;
+    padding: 3em;
+    justify-content: space-around;
+}
+
+.textDescription {
+    width: 40em;
+}
+
+.imgCategory {
+    height: 200px;
+    width: 300px;
+    border-radius: 10%;
+}
