@@ -1,0 +1,16 @@
+.headerTittle {
+    font-family: "Dancing Script, italic";
+    font-size: "50px"
+}
+
+.header {
+    height: "120px";
+    background-color: "rgb(2, 104, 78, 0.7)";
+    color: "white";
+    border-radius: "0 0 30% 30%"
+}
+
+.headerDescription {
+    font-family: "Open Sans, sans-serif";
+    font-size: 16,
+}
