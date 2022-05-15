@@ -1,17 +1,28 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import './Product.css'
 
 function Product() {
 
     const [title, setTitle] = useState('')
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState('bedroom')
     const [description, setDescription] = useState('')
     const [showForm, setShowForm] = useState(false)
     
-    const addDesign = (e) => {
+    const addDesign = async (e) => {
         e.preventDefault()
-        const obj = { title, category, description }
+        const obj = { 
+            title: title, 
+            category: category, 
+            description: description 
+        }
         console.log(obj)
+        try {
+            let res = await axios.post('http://localhost:3001/designs/new', obj)
+            console.log(res);
+        } catch (e) {
+            console.log(e);
+        } 
     }
 
     return (
