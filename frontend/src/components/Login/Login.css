@@ -1,10 +1,17 @@
-
 .containerLogin {
     height: 100vh;
     background-color: #491D22 !important;
     display: flex;
     justify-content: center;
     font-family: "HelveticaNeue-Light";
+}
+
+.containerLoginDesigns {
+    height: 100vh;
+    background-color: #491D22 !important;
+    justify-content: center;
+    font-family: "HelveticaNeue-Light";
+    flex-direction: column;
 }
 
 .formContainer {
@@ -14,7 +21,11 @@
     width: 30em;
 }
 
-.btnLogin, .btnLogin:hover, .btnLogin:focus, .btnLogin:active, .btnLogin:active:focus {
+.btnLogin,
+.btnLogin:hover,
+.btnLogin:focus,
+.btnLogin:active,
+.btnLogin:active:focus {
     margin: 2em;
     color: white !important;
     width: 10em;
@@ -27,7 +38,7 @@
     margin-bottom: 1.5em;
 }
 
-.links{
+.links {
     width: 100%;
     text-align: center;
     cursor: pointer;

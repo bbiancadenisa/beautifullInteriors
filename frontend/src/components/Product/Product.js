@@ -1,20 +1,23 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import CategoryCard from '../Home/CategoryCard'
 import './Product.css'
 
-function Product() {
+function Product({designs}) {
 
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState('bedroom')
     const [description, setDescription] = useState('')
     const [showForm, setShowForm] = useState(false)
-    
+    const idUser = localStorage.getItem('id')
+
     const addDesign = async (e) => {
         e.preventDefault()
         const obj = { 
             title: title, 
             category: category, 
-            description: description 
+            description: description,
+            userId: idUser
         }
         console.log(obj)
         try {
@@ -86,10 +89,20 @@ function Product() {
             </div>
             </div>
         </div>) : (
-            <div  className='containerLogin text-white container-fluid' onClick={()=> setShowForm(true)}>
+            <div className='containerLoginDesigns text-white container-fluid'>
                 <button onClick={()=> setShowForm(true)} className='btn btn-lg btnLogin btnAddDesign'>
                     Add design
                 </button>
+                <div>
+                {designs.map((design, index) => {
+                    return (
+                       <div>
+                           <h2>{design.title}</h2>
+                           <img className='imgCategory' src="/images/kitchen.jpg" alt='' />
+                       </div>
+                    )
+                })}
+                </div>
             </div>)     
     )
 }
