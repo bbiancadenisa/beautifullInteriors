@@ -7,10 +7,27 @@ import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['Designs', 'Contact', 'Blog'];
+const pages = ['Designs', 'Contact'];
 
 const Header = () => {
+
+  const navigate = useNavigate()
+  
+const handlePageRedirect = (page) => {
+  console.log(page)
+  switch(page) {
+      case 'Designs':
+        navigate('/designs')
+        break;
+      case 'Contact':
+        navigate('/contact')
+        break;
+    default: break
+  }
+}
+
   return (
     <AppBar style={{backgroundColor: '#2C1114'}}position="static">
       <Container maxWidth="xl">
@@ -35,32 +52,11 @@ const Header = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <Menu
-              id="menu-appbar"
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+        
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
+                onClick={() => handlePageRedirect(page)}
                 key={page}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
