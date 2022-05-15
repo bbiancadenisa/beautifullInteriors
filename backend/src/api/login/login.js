@@ -1,4 +1,5 @@
-const express = require("express")
+const express = require("express");
+const User = require("../../models/User");
 const router = express.Router()
 
 router.route("/").post(async (req,res) =>{
@@ -8,8 +9,10 @@ router.route("/").post(async (req,res) =>{
         const userPassword = req.body.userPassword;
         const result = await User.findOne({ userEmail: userEmail });
         if(result){
-          req.session.loggedin = true; //req.session param set
-                req.session.userEmail = userEmail;
+          console.log(result)
+          // req.session.loggedin = true; //req.session param set
+          //       req.session.userEmail = userEmail;
+          return res.status(200).json({ email: userEmail, id: result._id })
         }
         if (!result) {
           return res.status(400).json({ error: "User not found" });

@@ -3,11 +3,12 @@ const Design = require("../../models/Design")
 const router = express.Router()
 
 router.route("/new").post((req,res) =>{
-    const {category, description, userId} = req.body
+    const {category, description, title} = req.body
     const design = new Design({
+        title: title,
         category: category,
         description: description,
-        userId: userId
+        
     })
     design.save()
     res.send({status: 200, message: 'Everything seems to be working fine on POST'})

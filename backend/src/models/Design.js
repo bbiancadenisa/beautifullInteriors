@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const DesignSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
   category: {
     type: String,
     required: true,
@@ -10,10 +14,10 @@ const DesignSchema = new Schema({
     type: String,
     required: true,
   },
-  userId: {
-    type: Number,
-    required: true
-  },
+  // userId: {
+  //   type: Number,
+  //   required: true
+  // },
   
 }, { timestamps: true });
 

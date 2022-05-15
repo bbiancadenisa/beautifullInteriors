@@ -4,48 +4,55 @@ import axios from 'axios';
 import './Login.css'
 
 
-const Login = (props) => {
+const Login = ({setIsAuth}) => {
 
     const history = useNavigate()
 
     const [userEmail, setUserEmail] = useState('')
     const [userPassword, setUserPassword] = useState('')
+    const [userName, setUserName] = useState('')
+
     const [isRegistered, setIsRegistered] = useState(false)
+    
     const [error,setError] = useState()
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault()
-        setUserEmail(e.target.value)
-        setUserPassword(e.target.value)
-        console.log('logged in')
-    }
-
-    const handleSignUp = (e) => {
-        e.preventDefault()
-        setUserEmail(e.target.value)
-        setUserPassword(e.target.value)
-        console.log('signed up')
-    }
-
-    const handleFormComplete = (event) => {
-        console.log('completed')
-    }
-
-    const onSubmit = async (event) => {
-        event.preventDefault();
         const payload = {
           userEmail: userEmail,
           userPassword: userPassword
         }
         try {
             let res = await axios.post('http://localhost:3001/login', payload)
-            console.log(res);
-            history("/menu"); 
+            console.log(res,'res');
+            if(res && res.data) {
+                localStorage.setItem('id', res.data.id)
+            }
+            setIsAuth(true)
+            history("/"); 
         } catch (e) {
             console.log(e);
             setError(e);
         } 
-      }
+    }
+
+    const handleSignUp = async (e) => {
+        e.preventDefault()
+        const payload = {
+            email: userEmail,
+            password: userPassword,
+            userName: userName
+          }
+          try {
+              let res = await axios.post('http://localhost:3001/users/new', payload)
+              console.log(res);
+              if(res)
+                history("/"); 
+          } catch (e) {
+              console.log(e);
+              setError(e);
+          } 
+    }
 
     return (
         <div className='containerLogin text-white container-fluid d-flex flex-row align-items-center text-align-center'>
@@ -56,7 +63,6 @@ const Login = (props) => {
                 <div className='shadow-sm rounded-lg formContainer'>
                     <form id='loginIdForm' onSubmit={(e) => {
                         e.preventDefault()
-                        handleLogin()
                     }}>
                         <div className='mb-4'>
                             <label>E-mail</label>
@@ -67,10 +73,10 @@ const Login = (props) => {
                                 className='form-control mt-2'
                                 placeholder='Input your e-mail'
                                 value={userEmail}
-                                onChange={(event) => handleFormComplete(event)}
+                                onChange={(event) => setUserEmail(event.target.value)}
                             />
                         </div>
-                        <div>
+                        <div className='mb-4'>
                             <label>Password</label>
                             <input
                                 type='password'
@@ -79,9 +85,22 @@ const Login = (props) => {
                                 className='form-control mt-2'
                                 placeholder='Input your password'
                                 value={userPassword}
-                                onChange={(event) => handleFormComplete(event)}
+                                onChange={(event) => setUserPassword(event.target.value)}
                             />
                         </div>
+                        {isRegistered && <div>
+                            <label>Username</label>
+                            <input
+                                type='username'
+                                id='username'
+                                name='username'
+                                className='form-control mt-2'
+                                placeholder='Input your username'
+                                value={userName}
+                                onChange={(event) => setUserName(event.target.value)}
+                            />
+                        </div> }
+                        
                         <div onClick={()=> setIsRegistered(!isRegistered)} className='links'> {isRegistered? "Back to Login" : "Don't have an account? Sign Up"}</div>
                         <div className='d-flex justify-content-center mt-3' >
                             {!isRegistered? (
