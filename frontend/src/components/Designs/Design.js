@@ -23,7 +23,9 @@ useEffect( () => {
 }, [])
 
   return (
-    <div><Product designs={designs} />
+    <div><Product 
+    getAllDesign={getAllDesign}
+    designs={designs} />
     </div>
   )
 }

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import CategoryCard from '../Home/CategoryCard'
 import './Product.css'
 
-function Product({designs}) {
+function Product({designs, getAllDesign}) {
 
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState('bedroom')
@@ -22,6 +22,8 @@ function Product({designs}) {
         console.log(obj)
         try {
             let res = await axios.post('http://localhost:3001/designs/new', obj)
+            setShowForm(false)
+            getAllDesign()
             console.log(res);
         } catch (e) {
             console.log(e);
@@ -36,7 +38,10 @@ function Product({designs}) {
             <div className='text-center textContainer'>
                 <h1> Add your design here </h1>
             </div>
-            <div className='shadow-sm rounded-lg formContainer'>
+            <div className='shadow-sm rounded-lg addContainer'>
+                <div className='closeButton'>
+                    <span onClick={() => setShowForm(false)} className='btnClose'> X </span>
+                </div>
                 <form id='loginIdForm' onSubmit={(e) => {
                 }}>
                     <div className='mb-4'>
@@ -93,11 +98,13 @@ function Product({designs}) {
                 <button onClick={()=> setShowForm(true)} className='btn btn-lg btnLogin btnAddDesign'>
                     Add design
                 </button>
-                <div>
+                <div className="row d-flex">
                 {designs.map((design, index) => {
                     return (
-                       <div>
-                           <h2>{design.title}</h2>
+                    <div className='col-lg-3 d-flex flex-column text-center align-items-center mb-4' key={index}>
+                          <h5 className='mb-1'>
+                            {design.title}
+                        </h5>
                            <img className='imgCategory' src="/images/kitchen.jpg" alt='' />
                        </div>
                     )
