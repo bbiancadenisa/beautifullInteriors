@@ -16,6 +16,7 @@ router.route("/new").post((req,res) =>{
 })
 
 router.route("/all/:id").get(async (req,res) =>{
+  console.log('Id got', req.params.id)
   const user = await User.findById(req.params.id)
   const designs = await Design.find({userId: req.params.id})
   const result = {

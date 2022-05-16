@@ -7,7 +7,7 @@ router.route("/").post(async (req,res) =>{
         console.log(req.body)
         const userEmail = req.body.userEmail;
         const userPassword = req.body.userPassword;
-        const result = await User.findOne({ userEmail: userEmail });
+        const result = await User.findOne({ email: userEmail });
         if(result){
           console.log(result)
           // req.session.loggedin = true; //req.session param set
