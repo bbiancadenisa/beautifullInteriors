@@ -1,0 +1,10 @@
+.containerCategory {
+    height: 100vh;
+    background-color: #491D22 !important;
+    display: flex;
+    font-family: "HelveticaNeue-Light";
+}
+
+.title {
+    margin: 1em 0 1em 0;
+}
