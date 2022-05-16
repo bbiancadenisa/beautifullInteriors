@@ -1,3 +1,19 @@
 .btnAddDesign {
     height: 3em;
 }
+
+.closeButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addContainer {
+    padding: 1em 3em 1em 3em !important;
+    background-color: #2C1114 !important;
+    border-radius: 0.3em;
+    width: 30em;
+}
+
+.btnClose {
+    cursor: pointer;
+}
