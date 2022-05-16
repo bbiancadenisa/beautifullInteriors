@@ -25,6 +25,11 @@ router.route("/all/:id").get(async (req,res) =>{
   res.send(result)
 })
 
+router.route("/category/:category").get(async (req,res) =>{
+  const designs = await Design.find({category: req.params.category})
+  res.send(designs)
+})
+
 router.route("/search").get((req,res) =>{
     res.send({status: 200, message: 'Everything seems to be working fine on GET'})
 })
