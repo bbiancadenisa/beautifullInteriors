@@ -1,0 +1,19 @@
+.closeButton {
+    text-align: right;
+    cursor: pointer;
+    margin: 1em;
+
+}
+
+.designUserName {
+    margin: 2em;
+}
+
+.designDescription {
+    margin: 2em;
+}
+
+.imgDesignDetail {
+    margin-right: 10em;
+    margin-top: 5em;
+}

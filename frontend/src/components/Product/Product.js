@@ -10,18 +10,19 @@ function Product({designs, getAllDesign}) {
     const [description, setDescription] = useState('')
     const [showForm, setShowForm] = useState(false)
     const idUser = localStorage.getItem('id')
+    const [image, setImage] = useState('')
+ 
 
     const addDesign = async (e) => {
         e.preventDefault()
-        const obj = { 
-            title: title, 
-            category: category, 
-            description: description,
-            userId: idUser
-        }
-        console.log(obj)
+        const formData = new FormData()
+        formData.append('title', title)
+        formData.append('category', category)
+        formData.append('description', description)
+        formData.append('userId', idUser)
+        formData.append('image', image)
         try {
-            let res = await axios.post('http://localhost:3001/designs/new', obj)
+            let res = await axios.post('http://localhost:3001/designs/new', formData)
             setShowForm(false)
             getAllDesign()
             console.log(res);
@@ -30,6 +31,10 @@ function Product({designs, getAllDesign}) {
         } 
     }
 
+    const fileChange = (e) => {
+        setImage(e.target.files[0]);
+      };
+      
     return (
         showForm ? 
         (
@@ -75,7 +80,7 @@ function Product({designs, getAllDesign}) {
                     <div>
                         <label>Description</label>
                         <textarea
-                            maxLength={50}
+                            maxLength={1000}
                             type='text'
                             id='description'
                             name='description'
@@ -85,6 +90,7 @@ function Product({designs, getAllDesign}) {
                             onChange={(event) => setDescription(event.target.value)}
                         />
                     </div>
+                    <input type="file" onChange={(e) => fileChange(e)} />
                     <div className='d-flex justify-content-center mt-3' >
                         <button onClick={(e) => addDesign(e)} className='btn btn-lg btnLogin'>
                             Add
@@ -105,7 +111,7 @@ function Product({designs, getAllDesign}) {
                           <h5 className='mb-1'>
                             {design.title}
                         </h5>
-                           <img className='imgCategory' src="/images/kitchen.jpg" alt='' />
+                           <img className='imgCategory' src={`${design.image}`} alt='' />
                        </div>
                     )
                 })}

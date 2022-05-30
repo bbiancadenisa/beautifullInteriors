@@ -3,7 +3,6 @@ const User = require("../../models/User")
 const router = express.Router()
 
 router.route("/new").post((req,res) =>{
-    console.log(req.body)
     const {email, password, userName} =  req.body
     const user = new User({
         email: email,
