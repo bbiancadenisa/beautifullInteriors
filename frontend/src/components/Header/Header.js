@@ -17,7 +17,6 @@ const Header = ({isAuth, setIsAuth}) => {
   const navigate = useNavigate()
 
 const handlePageRedirect = (page) => {
-  console.log(page)
   switch(page) {
       case 'Designs':
         navigate('/designs')
