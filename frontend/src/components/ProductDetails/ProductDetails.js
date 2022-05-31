@@ -8,7 +8,7 @@ function ProductDetails({design, user}) {
         </div>
         <div className='d-flex justify-content-between'>
             <div>
-                <div className='designUserName'>{user.userName} </div>
+                <span className='designUserName'>{user.userName} </span>
                 <div className='designDescription'>{design.description}</div>
             </div>
             <img className='imgDesignDetail' src={`${design.image}`} alt='' />

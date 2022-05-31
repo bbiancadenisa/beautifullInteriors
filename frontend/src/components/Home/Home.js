@@ -16,7 +16,7 @@ const Home = () => {
           <div className="d-flex justify-content-around">
           <CategoryCard title="Kitchen" image={<img className='imgCategory' src="/images/kitchen.jpg" alt='' />}/>
           <CategoryCard title="Bathroom" image={<img className='imgCategory' src="/images/bathroom.jpg" alt='' />}/>
-          <CategoryCard title="Living Room" image={<img className='imgCategory' src="/images/livingRoom.jpg"  alt='' />}/>
+          <CategoryCard title="Salon" image={<img className='imgCategory' src="/images/livingRoom.jpg"  alt='' />}/>
           <CategoryCard title="Bedroom" image={<img className='imgCategory' src="/images/bedroom.jpg" alt='' />}/>
           </div>
 
