@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import CategoryCard from '../Home/CategoryCard'
 import './Product.css'
 
 function Product({designs, getAllDesign}) {
@@ -34,6 +33,16 @@ function Product({designs, getAllDesign}) {
     const fileChange = (e) => {
         setImage(e.target.files[0]);
       };
+
+    const handleDelete = async (id) => {
+        try {
+            let res = await axios.delete(`http://localhost:3001/designs/delete/${id}`)
+            getAllDesign()
+            console.log(res);
+        } catch (e) {
+            console.log(e);
+        } 
+    }
       
     return (
         showForm ? 
@@ -74,7 +83,7 @@ function Product({designs, getAllDesign}) {
                             <option value="bedroom">Bedroom</option>
                             <option value="bathroom">Bathroom</option>
                             <option value="kitchen">Kitchen</option>
-                            <option value="livingRoom">Living Room</option>
+                            <option value="salon">Salon</option>
                         </select>
                     </div>
                     <div>
@@ -108,9 +117,12 @@ function Product({designs, getAllDesign}) {
                 {designs.map((design, index) => {
                     return (
                     <div className='col-lg-3 d-flex flex-column text-center align-items-center mb-4' key={index}>
-                          <h5 className='mb-1'>
-                            {design.title}
-                        </h5>
+                        <div className='d-flex justify-content-between designTitleCancel'>
+                            <h5 className='mb-1'>
+                                {design.title}
+                            </h5>
+                            <div onClick={() => handleDelete(design._id)} className='cancel'> X </div>
+                        </div>
                            <img className='imgCategory' src={`${design.image}`} alt='' />
                        </div>
                     )

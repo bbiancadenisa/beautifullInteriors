@@ -6,7 +6,8 @@
 }
 
 .designUserName {
-    margin: 2em;
+    margin: 1em;
+    font-size: 3em;
 }
 
 .designDescription {
@@ -14,6 +15,9 @@
 }
 
 .imgDesignDetail {
-    margin-right: 10em;
+    margin-right: 6em;
+    margin-left: 6em;
     margin-top: 5em;
+    height: 400px;
+    width: 800px;
 }

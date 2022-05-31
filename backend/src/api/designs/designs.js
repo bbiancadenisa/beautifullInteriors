@@ -73,6 +73,14 @@ router.route("/details/:id").get(async (req,res) =>{
   res.send(result)
 })
 
+router.route("/delete/:id").delete(async (req,res) =>{
+  const design = await Design.findById(req.params.id)
+  if(design){
+    await Design.deleteOne({ _id: req.params.id });
+  }
+  res.send('Design deleted succesfully!')
+})
+
 router.route("/category/:category").get(async (req,res) =>{
   const designs = await Design.find({category: req.params.category})
   res.send(designs)

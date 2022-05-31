@@ -17,3 +17,11 @@
 .btnClose {
     cursor: pointer;
 }
+
+.designTitleCancel {
+    width: 17em;
+}
+
+.cancel {
+    cursor: pointer;
+}
