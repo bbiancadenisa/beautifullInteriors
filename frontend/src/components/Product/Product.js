@@ -99,7 +99,7 @@ function Product({designs, getAllDesign}) {
                             onChange={(event) => setDescription(event.target.value)}
                         />
                     </div>
-                    <input type="file" onChange={(e) => fileChange(e)} />
+                    <input className='uploadButton' type="file" onChange={(e) => fileChange(e)} />
                     <div className='d-flex justify-content-center mt-3' >
                         <button onClick={(e) => addDesign(e)} className='btn btn-lg btnLogin'>
                             Add

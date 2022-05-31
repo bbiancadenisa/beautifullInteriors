@@ -49,7 +49,6 @@ const handlePageRedirect = (page) => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -59,7 +58,7 @@ const handlePageRedirect = (page) => {
               }
             }}
           >
-            LOGO
+            BeautifulInteriors
           </Typography>
         
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -70,13 +69,13 @@ const handlePageRedirect = (page) => {
               >
                 {'Designs'}
               </Button>}
-              <Button
+              {/* <Button
                 onClick={() => handlePageRedirect('Contact')}
                 key={'Contact'}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {'Contact'}
-              </Button>
+              </Button> */}
               {!isAuth &&
               <Button
                 onClick={() => handlePageRedirect('Login')}
